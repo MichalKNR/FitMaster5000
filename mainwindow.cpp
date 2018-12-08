@@ -6,6 +6,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    login_window = new Login_Dialog();
+    login_window->exec();
+
 }
 
 MainWindow::~MainWindow()
