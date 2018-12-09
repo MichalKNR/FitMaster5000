@@ -34,7 +34,8 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
     login_dialog.h \
-    show_events_dialog.h
+    show_events_dialog.h \
+    typedefs.h
 
 
 FORMS += \
