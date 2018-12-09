@@ -24,17 +24,35 @@ void MainWindow::login_customer(){
 
     valid_password=check_password_validity(login,password);
     if(valid_password==false){
-        QMessageBox *error_message = new QMessageBox("Błąd logowania","Użyto złego hasła!, spróbuj ponownie",QMessageBox::NoIcon,0,0,0);
+        QMessageBox *error_message = new QMessageBox("Błąd logowania","Użyto złego hasła! \n\rSpróbuj ponownie",QMessageBox::NoIcon,0,0,0);
         error_message->exec();
     }
 }while(valid_password==false);
+ui->Login_Label->setText(QString::fromStdString(this->login));
 
+if(is_admin(login,password)) {
+    ui->isAdmin_Laber->setVisible(true);
+    ui->Add_new_Events_PB->setVisible(true);
+    ui->ShowEvents_PB->setVisible(false);
 }
+else {
+    ui->isAdmin_Laber->setVisible(false);
+    ui->Add_new_Events_PB->setVisible(false);
+    ui->ShowEvents_PB->setVisible(true);
+}
+}
+
+
 bool MainWindow:: check_password_validity(std::string login, std::string password){
     //TODO evaluate password validity
     return true; //DEBUG
 }
 
+
+bool MainWindow::is_admin(std::string login, std::string password){
+    //TODO evaluate ADMIN authentication
+    return false; //DEBUG
+}
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -43,10 +61,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Log_out_PB_clicked()
 {
+    ui->Login_Label->setText("");
     login_customer();
 }
 
 void MainWindow::on_Apply_for_Event_PB_clicked()
 {
 
+}
+
+
+void MainWindow::on_Add_new_Events_PB_clicked()
+{
+    //TODO evaluate Adding new events
 }

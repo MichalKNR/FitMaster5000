@@ -25,6 +25,8 @@ private slots:
 
     void on_Apply_for_Event_PB_clicked();
 
+    void on_Add_new_Events_PB_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -38,6 +40,8 @@ private:
 
 
     bool check_password_validity(std::string login, std::string password);
+
+    bool is_admin(std::string login, std::string password);
 };
 
 #endif // MAINWINDOW_H
