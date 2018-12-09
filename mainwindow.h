@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include"login_dialog.h"
 #include"show_events_dialog.h"
+#include "add_event_dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,10 +19,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
-
     void on_Log_out_PB_clicked();
 
     void on_Apply_for_Event_PB_clicked();
