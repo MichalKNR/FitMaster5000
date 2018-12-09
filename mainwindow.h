@@ -21,9 +21,12 @@ private:
 
     Login_Dialog *login_window;
 
-private slots:
-    //void create_new_customer(std::string login, std::string password);
-    //void login_customer(std::string login, std::string password);
+    std::string login;
+    std::string password;
+    bool is_new_customer;
+
+
+    bool check_password_validity(std::string login, std::string password);
 };
 
 #endif // MAINWINDOW_H

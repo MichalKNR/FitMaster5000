@@ -14,6 +14,9 @@ class Login_Dialog : public QDialog
 public:
     explicit Login_Dialog(QWidget *parent = nullptr);
     ~Login_Dialog();
+    std::string login;
+    std::string password;
+    bool is_new_customer;
 
 private slots:
     void on_OK_PB_clicked();
