@@ -27,17 +27,20 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    login_dialog.cpp
+    login_dialog.cpp \
+    show_events_dialog.cpp
 
 
 HEADERS += \
         mainwindow.h \
-    login_dialog.h
+    login_dialog.h \
+    show_events_dialog.h
 
 
 FORMS += \
         mainwindow.ui \
-    login_dialog.ui
+    login_dialog.ui \
+    show_events_dialog.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

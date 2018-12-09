@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include<login_dialog.h>
+#include"login_dialog.h"
+#include"show_events_dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,6 +27,8 @@ private slots:
     void on_Apply_for_Event_PB_clicked();
 
     void on_Add_new_Events_PB_clicked();
+
+    void on_ShowEvents_PB_clicked();
 
 private:
     Ui::MainWindow *ui;

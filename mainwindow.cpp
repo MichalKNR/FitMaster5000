@@ -75,3 +75,10 @@ void MainWindow::on_Add_new_Events_PB_clicked()
 {
     //TODO evaluate Adding new events
 }
+
+void MainWindow::on_ShowEvents_PB_clicked()
+{
+    Show_Events_Dialog *ShEv_D = new Show_Events_Dialog;
+    if(ShEv_D->exec()==QDialog::Accepted)
+        delete ShEv_D;
+}
