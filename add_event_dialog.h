@@ -16,6 +16,8 @@ public:
     explicit Add_Event_Dialog(QWidget *parent = nullptr);
     ~Add_Event_Dialog();
 
+    FIT::Event event_new;
+
 private slots:
     void on_Add_event_PB_clicked();
 
@@ -25,8 +27,8 @@ private:
     Ui::Add_Event_Dialog *ui;
 
     int* parse_time(QString time);
-    int parse_place(QString place);
-    int parse_day(QString day);
+    FIT::Place parse_place(QString place);
+    FIT::Day parse_day(QString day);
 
 
 };

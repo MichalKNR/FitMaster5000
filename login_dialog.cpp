@@ -6,6 +6,7 @@ Login_Dialog::Login_Dialog(QWidget *parent) :
     ui(new Ui::Login_Dialog)
 {
     ui->setupUi(this);
+    setWindowTitle("Logowanie");
     ui->Password_secondary_LE->setEnabled(false); //kolejna komenda i tak spowoduje jego wyłączenie, lecz aby zahcować przejrzystość jest też tu.
     ui->New_customer_CB->setCheckState(Qt::Unchecked);
 

@@ -8,6 +8,7 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
     ui(new Ui::Show_Events_Dialog)
 {
     ui->setupUi(this);
+    setWindowTitle("Okno przeglądania zajęć");
     ui->EventsTable->setColumnCount(4);
     QStringList ColumnsNames;
     ColumnsNames<<"Nazwa"<<"Trener"<<"Miejsce"<<"Czas";

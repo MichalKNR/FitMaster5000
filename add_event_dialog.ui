@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>272</width>
-    <height>262</height>
+    <width>264</width>
+    <height>317</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,16 +36,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Coach_LE">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>90</y>
-     <width>221</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
@@ -57,16 +47,6 @@
    </property>
    <property name="text">
     <string>Prowadzący</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="Place_LE">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>140</y>
-     <width>221</width>
-     <height>20</height>
-    </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -82,24 +62,11 @@
     <string>Miejsce</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="Time_LE">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>190</y>
-     <width>221</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>00:00</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>170</y>
+     <y>220</y>
      <width>81</width>
      <height>16</height>
     </rect>
@@ -111,8 +78,8 @@
   <widget class="QPushButton" name="End_PB">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>230</y>
+     <x>150</x>
+     <y>280</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -124,14 +91,70 @@
   <widget class="QPushButton" name="Add_event_PB">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>230</y>
+     <x>30</x>
+     <y>280</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Dodaj</string>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="timeEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>240</y>
+     <width>118</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Place_CB">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>140</y>
+     <width>221</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Coach_CB">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>221</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Dzień</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Day_CB">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>221</width>
+     <height>22</height>
+    </rect>
    </property>
   </widget>
  </widget>

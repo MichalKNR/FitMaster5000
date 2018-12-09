@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    setWindowTitle("Okno główne");
     login_customer();
 }
 
@@ -51,7 +51,7 @@ bool MainWindow:: check_password_validity(std::string login, std::string passwor
 
 bool MainWindow::is_admin(std::string login, std::string password){
     //TODO evaluate ADMIN authentication
-    return false; //DEBUG
+    return true; //DEBUG
 }
 MainWindow::~MainWindow()
 {
@@ -74,6 +74,10 @@ void MainWindow::on_Apply_for_Event_PB_clicked()
 void MainWindow::on_Add_new_Events_PB_clicked()
 {
     //TODO evaluate Adding new events
+    Add_Event_Dialog *AdEV_D = new Add_Event_Dialog;
+    if(AdEV_D->exec()==QDialog::Accepted){
+
+    }
 }
 
 void MainWindow::on_ShowEvents_PB_clicked()
