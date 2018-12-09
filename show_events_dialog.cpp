@@ -12,7 +12,22 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
     QStringList ColumnsNames;
     ColumnsNames<<"Nazwa"<<"Trener"<<"Miejsce"<<"Czas";
     ui->EventsTable->setHorizontalHeaderLabels(ColumnsNames);
+    ui->EventsTable->setColumnWidth(Tytul,80);
+    ui->EventsTable->setColumnWidth(Trener,125);
+    ui->EventsTable->setColumnWidth(Miejsce,150);
+    ui->EventsTable->setColumnWidth(Czas,150);
 
+    //TODO evaluate SQL querry
+
+    bool EventsExist = true;
+    if(!EventsExist){
+        QMessageBox *NoEventsMsgBox =
+                new QMessageBox("Brak zajęć",
+                "Nie uczestniczysz w żadnych zajęciach \n\r Zapisz się, aby zobaczyć swoje obecności",
+                QMessageBox::NoIcon,0,0,0);
+        NoEventsMsgBox->exec();
+        this->accept();
+    }
 //DEBUG FILLING_EVENTS
     {
         Events.push_back(FIT::Event("Aerobik",
@@ -30,7 +45,7 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
     }
 
     for(auto event: this->Events){
-        ui->EventsTable->insertRow((ui->EventsTable->rowCount())-1);
+        ui->EventsTable->insertRow((ui->EventsTable->rowCount()));
         ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
                                  Tytul,
                                  new QTableWidgetItem(QString::fromStdString(event.Title)));
@@ -47,19 +62,7 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
     }
 
 
-    //TODO evaluate SQL querry
 
-    bool EventsExist = false; //DEBUG Teraz nie ma żadnych zajęć
-    if(EventsExist){
-        //TODO Show Events
-    }
-    else{
-        QMessageBox *NoEventsMsgBox = new QMessageBox("Brak zajęć",
-                                                      "Nie uczestniczysz w żadnych zajęciach \n\r Zapisz się, aby zobaczyć swoje obecności",
-                                                      QMessageBox::NoIcon,0,0,0);
-        NoEventsMsgBox->exec();
-        this->accept();
-    }
 }
 QString Show_Events_Dialog::parse_time(FIT::Event event){
     QString Return_value;
