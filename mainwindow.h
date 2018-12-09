@@ -36,6 +36,7 @@ private:
     std::string password;
     bool is_new_customer;
 
+
     void login_customer();
 
 

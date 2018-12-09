@@ -75,9 +75,8 @@ void MainWindow::on_Add_new_Events_PB_clicked()
 {
     //TODO evaluate Adding new events
     Add_Event_Dialog *AdEV_D = new Add_Event_Dialog;
-    if(AdEV_D->exec()==QDialog::Accepted){
-
-    }
+    if(AdEV_D->exec()==QDialog::Accepted)
+        return;
 }
 
 void MainWindow::on_ShowEvents_PB_clicked()

@@ -17,6 +17,7 @@ public:
     ~Add_Event_Dialog();
 
     FIT::Event event_new;
+    bool valid_event;
 
 private slots:
     void on_Add_event_PB_clicked();
@@ -26,7 +27,7 @@ private slots:
 private:
     Ui::Add_Event_Dialog *ui;
 
-    int* parse_time(QString time);
+    void parse_time(int *p_time);
     FIT::Place parse_place(QString place);
     FIT::Day parse_day(QString day);
 
