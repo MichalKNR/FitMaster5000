@@ -28,20 +28,23 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     login_dialog.cpp \
-    show_events_dialog.cpp
+    show_events_dialog.cpp \
+    add_event_dialog.cpp
 
 
 HEADERS += \
         mainwindow.h \
     login_dialog.h \
     show_events_dialog.h \
-    typedefs.h
+    typedefs.h \
+    add_event_dialog.h
 
 
 FORMS += \
         mainwindow.ui \
     login_dialog.ui \
-    show_events_dialog.ui
+    show_events_dialog.ui \
+    add_event_dialog.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
