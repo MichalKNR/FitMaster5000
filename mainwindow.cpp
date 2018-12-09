@@ -67,7 +67,7 @@ void MainWindow::on_Log_out_PB_clicked()
 
 void MainWindow::on_Apply_for_Event_PB_clicked()
 {
-
+    //TODO evaluate applying for events
 }
 
 
