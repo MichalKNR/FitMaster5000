@@ -60,7 +60,7 @@
      <string>Twoje zajęcia</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Apply_for_Event_PB">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -76,6 +76,19 @@
     </property>
     <property name="text">
      <string>Zapisz się!</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Log_out_PB">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Wyloguj</string>
     </property>
    </widget>
   </widget>

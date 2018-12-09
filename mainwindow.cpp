@@ -7,6 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    login_customer();
+}
+
+void MainWindow::login_customer(){
     login_window = new Login_Dialog();
     bool valid_password=false;
     do{
@@ -33,4 +38,15 @@ bool MainWindow:: check_password_validity(std::string login, std::string passwor
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::on_Log_out_PB_clicked()
+{
+    login_customer();
+}
+
+void MainWindow::on_Apply_for_Event_PB_clicked()
+{
+
 }
