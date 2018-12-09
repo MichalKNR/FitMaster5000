@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "QMessageBox"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,10 +18,14 @@ MainWindow::MainWindow(QWidget *parent) :
     if(is_new_customer) break; //Nowy użytkownik nie musi mieć spradzanego hasła
 
     valid_password=check_password_validity(login,password);
+    if(valid_password==false){
+        QMessageBox *error_message = new QMessageBox("Błąd logowania","Użyto złego hasła!, spróbuj ponownie",QMessageBox::NoIcon,0,0,0);
+        error_message->exec();
+    }
 }while(valid_password==false);
 
 }
-bool check_password_validity(std::string login, std::string password){
+bool MainWindow:: check_password_validity(std::string login, std::string password){
     //TODO evaluate password validity
     return true; //DEBUG
 }

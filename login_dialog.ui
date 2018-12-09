@@ -90,12 +90,12 @@
     <rect>
      <x>30</x>
      <y>20</y>
-     <width>47</width>
-     <height>13</height>
+     <width>91</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Login</string>
+    <string>Login (Nr karty)</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="Login_LE">
