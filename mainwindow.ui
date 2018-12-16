@@ -17,15 +17,15 @@
    <widget class="QPushButton" name="Apply_for_Event_PB">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>70</x>
       <y>130</y>
-      <width>171</width>
-      <height>71</height>
+      <width>121</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>22</pointsize>
+      <pointsize>17</pointsize>
      </font>
     </property>
     <property name="text">

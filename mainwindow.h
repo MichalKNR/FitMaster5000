@@ -44,6 +44,8 @@ private:
     bool check_password_validity(std::string login, std::string password);
 
     bool is_admin(std::string login, std::string password);
+
+    bool is_coach(std::string login, std::string password);
 };
 
 #endif // MAINWINDOW_H

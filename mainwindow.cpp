@@ -40,6 +40,11 @@ else {
     ui->Add_new_Events_PB->setVisible(false);
     ui->ShowEvents_PB->setVisible(true);
 }
+if(is_coach(login,password)){
+    ui->isAdmin_Laber->setVisible(false);
+    ui->Add_new_Events_PB->setVisible(false);
+    ui->ShowEvents_PB->setVisible(false);
+}
 }
 
 
@@ -51,6 +56,11 @@ bool MainWindow:: check_password_validity(std::string login, std::string passwor
 
 bool MainWindow::is_admin(std::string login, std::string password){
     //TODO evaluate ADMIN authentication
+    return true; //DEBUG
+}
+
+bool MainWindow::is_coach(std::string login, std::string password){
+    //TODO evaluate COACH authentication
     return true; //DEBUG
 }
 MainWindow::~MainWindow()
