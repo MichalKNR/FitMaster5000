@@ -20,29 +20,21 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
 
     //TODO evaluate SQL querry
 
-    bool EventsExist = true;
-    if(!EventsExist){
-        QMessageBox *NoEventsMsgBox =
-                new QMessageBox("Brak zajęć",
-                "Nie uczestniczysz w żadnych zajęciach \n\r Zapisz się, aby zobaczyć swoje obecności",
-                QMessageBox::NoIcon,0,0,0);
-        NoEventsMsgBox->exec();
-        this->accept();
-    }
-//DEBUG FILLING_EVENTS
+
+    //DEBUG FILLING_EVENTS
     {
         Events.push_back(FIT::Event("Aerobik",
-                                        FIT::Friday,
-                                        FIT::Warsaw_centre,
-                                        std::vector<std::string>{"Janek","Bożena"},
-                                        18,30,
-                                        "Mariusz Pudzianowski"));
+                                    FIT::Friday,
+                                    FIT::Warsaw_centre,
+                                    std::vector<std::string>{"Janek","Bożena"},
+                                    18,30,
+                                    "Mariusz Pudzianowski"));
         Events.push_back(FIT::Event("Zumba",
-                                        FIT::Monday,
-                                        FIT::Warsaw_Suburbs,
-                                        std::vector<std::string>{"Halina","Honorata"},
-                                        18,30,
-                                        "Adam Małysz"));
+                                    FIT::Monday,
+                                    FIT::Warsaw_Suburbs,
+                                    std::vector<std::string>{"Halina","Honorata"},
+                                    18,30,
+                                    "Adam Małysz"));
     }
 
     for(auto event: this->Events){
@@ -61,8 +53,17 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
                                  new QTableWidgetItem(QString::fromStdString(parse_time(event).toStdString())));
 
     }
-
-
+    bool EventsExist;
+    if(Events.empty()) EventsExist = false;
+    else EventsExist = true;
+    if(!EventsExist){
+        QMessageBox *NoEventsMsgBox =
+                new QMessageBox("Brak zajęć",
+                                "Nie uczestniczysz w żadnych zajęciach \n\r Zapisz się, aby zobaczyć swoje obecności",
+                                QMessageBox::NoIcon,0,0,0);
+        NoEventsMsgBox->exec();
+        this->accept();
+    }
 
 }
 QString Show_Events_Dialog::parse_time(FIT::Event event){
