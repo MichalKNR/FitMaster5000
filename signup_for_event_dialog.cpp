@@ -24,13 +24,13 @@ Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
 
     ui->EventsTable->setColumnCount(5);
     QStringList ColumnsNames;
-    ColumnsNames<<"Nazwa"<<"Trener"<<"Miejsce"<<"Czas";
+    ColumnsNames<<"Nazwa"<<"Trener"<<"Miejsce"<<"Czas"<<"Zajętosć";
     ui->EventsTable->setHorizontalHeaderLabels(ColumnsNames);
     ui->EventsTable->setColumnWidth(Tytul,80);
     ui->EventsTable->setColumnWidth(Trener,125);
     ui->EventsTable->setColumnWidth(Miejsce,150);
     ui->EventsTable->setColumnWidth(Czas,150);
-    ui->EventsTable->setColumnWidth(Ilosc_Miejsc,50);
+    ui->EventsTable->setColumnWidth(Ilosc_Miejsc,60);
 
 
 }
@@ -71,6 +71,7 @@ void Signup_for_event_Dialog::on_Search_PB_clicked()
     }
 #endif
 
+    fill_Events_Table();
 
 }
 
@@ -89,6 +90,13 @@ void Signup_for_event_Dialog::fill_Events_Table(){
         ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
                                  Czas,
                                  new QTableWidgetItem(QString::fromStdString(parse_time(event).toStdString())));
+        QString free_space_for_event_str = QString::number((int)event.participants.size());
+
+        free_space_for_event_str+="/";
+        free_space_for_event_str+=QString::number(event.max_participants);
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Ilosc_Miejsc,
+                                 new QTableWidgetItem(free_space_for_event_str));
 
     }
 }
