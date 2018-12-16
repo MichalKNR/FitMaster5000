@@ -5,6 +5,7 @@
 
 #include <QDialog>
 #include <typedefs.h>
+#include <QString>
 
 namespace Ui {
 class Signup_for_event_Dialog;
@@ -30,11 +31,17 @@ private:
 
     std::vector<FIT::Event> Events;
 
+    QString parse_time(FIT::Event event);
+    QString parse_place(FIT::Event event);
+
+    void fill_Events_Table();
+
     enum Columns{
         Tytul,
         Trener,
         Miejsce,
-        Czas
+        Czas,
+        Ilosc_Miejsc
     };
 };
 

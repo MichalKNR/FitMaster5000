@@ -28,31 +28,17 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
                                     FIT::Warsaw_centre,
                                     std::vector<std::string>{"Janek","Bożena"},
                                     18,30,
-                                    "Mariusz Pudzianowski"));
+                                    "Mariusz Pudzianowski",15));
         Events.push_back(FIT::Event("Zumba",
                                     FIT::Monday,
                                     FIT::Warsaw_Suburbs,
                                     std::vector<std::string>{"Halina","Honorata"},
                                     18,30,
-                                    "Adam Małysz"));
+                                    "Adam Małysz",15));
     }
 
-    for(auto event: this->Events){
-        ui->EventsTable->insertRow((ui->EventsTable->rowCount()));
-        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
-                                 Tytul,
-                                 new QTableWidgetItem(QString::fromStdString(event.Title)));
-        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
-                                 Trener,
-                                 new QTableWidgetItem(QString::fromStdString(event.coach)));
-        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
-                                 Miejsce,
-                                 new QTableWidgetItem(QString::fromStdString(parse_place(event).toStdString())));
-        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
-                                 Czas,
-                                 new QTableWidgetItem(QString::fromStdString(parse_time(event).toStdString())));
+    fill_Events_Table();
 
-    }
     bool EventsExist;
     if(Events.empty()) EventsExist = false;
     else EventsExist = true;
@@ -118,4 +104,23 @@ void Show_Events_Dialog::on_End_Dialog_PB_clicked()
     //TODO clear SQL querry Data
 
     this->accept();
+}
+
+void Show_Events_Dialog::fill_Events_Table(){
+    for(auto event: this->Events){
+        ui->EventsTable->insertRow((ui->EventsTable->rowCount()));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Tytul,
+                                 new QTableWidgetItem(QString::fromStdString(event.Title)));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Trener,
+                                 new QTableWidgetItem(QString::fromStdString(event.coach)));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Miejsce,
+                                 new QTableWidgetItem(QString::fromStdString(parse_place(event).toStdString())));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Czas,
+                                 new QTableWidgetItem(QString::fromStdString(parse_time(event).toStdString())));
+
+    }
 }

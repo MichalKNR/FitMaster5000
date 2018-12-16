@@ -28,6 +28,7 @@ struct Event{
     int minutes;
     std::string coach;
     std::vector<std::string> participants;
+    int max_participants;
     Event(){
         Title="NO_TITLE";
         day=Monday;
@@ -35,13 +36,15 @@ struct Event{
         hour = 17;
         minutes = 0;
         coach="Brak Trenera";
+        max_participants=15;
     }
     Event(std::string p_Title,
           Day p_day,
           Place p_place,
           std::vector<std::string> p_participants,
           int p_hour, int p_minutes,
-          std::string p_coach ){
+          std::string p_coach,
+          int p_max_participants){
         Title=p_Title;
         day=p_day;
         event_place=p_place;
@@ -49,6 +52,7 @@ struct Event{
         minutes = p_minutes;
         participants=p_participants;
         coach=p_coach;
+        max_participants = p_max_participants;
     }
 };
 

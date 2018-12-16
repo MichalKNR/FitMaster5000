@@ -32,6 +32,8 @@ private:
 
     QString parse_time(FIT::Event event);
     QString parse_place(FIT::Event event);
+
+    void fill_Events_Table();
 };
 
 #endif // SHOW_EVENTS_DIALOG_H

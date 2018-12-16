@@ -22,7 +22,7 @@ Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
 
     //Initializing Table
 
-    ui->EventsTable->setColumnCount(4);
+    ui->EventsTable->setColumnCount(5);
     QStringList ColumnsNames;
     ColumnsNames<<"Nazwa"<<"Trener"<<"Miejsce"<<"Czas";
     ui->EventsTable->setHorizontalHeaderLabels(ColumnsNames);
@@ -30,6 +30,8 @@ Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
     ui->EventsTable->setColumnWidth(Trener,125);
     ui->EventsTable->setColumnWidth(Miejsce,150);
     ui->EventsTable->setColumnWidth(Czas,150);
+    ui->EventsTable->setColumnWidth(Ilosc_Miejsc,50);
+
 
 }
 
@@ -59,15 +61,77 @@ void Signup_for_event_Dialog::on_Search_PB_clicked()
                                         FIT::Warsaw_centre,
                                         std::vector<std::string>{"Janek","Bożena"},
                                         18,30,
-                                        "Mariusz Pudzianowski"));
+                                        "Mariusz Pudzianowski", 15));
         Events.push_back(FIT::Event("Zumba",
                                         FIT::Monday,
                                         FIT::Warsaw_Suburbs,
                                         std::vector<std::string>{"Halina","Honorata"},
                                         18,30,
-                                        "Adam Małysz"));
+                                        "Adam Małysz",15));
     }
 #endif
 
 
+}
+
+void Signup_for_event_Dialog::fill_Events_Table(){
+    for(auto event: this->Events){
+        ui->EventsTable->insertRow((ui->EventsTable->rowCount()));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Tytul,
+                                 new QTableWidgetItem(QString::fromStdString(event.Title)));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Trener,
+                                 new QTableWidgetItem(QString::fromStdString(event.coach)));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Miejsce,
+                                 new QTableWidgetItem(QString::fromStdString(parse_place(event).toStdString())));
+        ui->EventsTable->setItem(ui->EventsTable->rowCount()-1,
+                                 Czas,
+                                 new QTableWidgetItem(QString::fromStdString(parse_time(event).toStdString())));
+
+    }
+}
+
+QString Signup_for_event_Dialog::parse_time(FIT::Event event){
+    QString Return_value;
+    switch (event.day) {
+    case FIT::Monday:
+        Return_value="Poniedziałek ";
+        break;
+    case FIT::Tuesday:
+        Return_value="Wtorek ";
+        break;
+    case FIT::Wednesday:
+        Return_value="Środa ";
+        break;
+    case FIT::Thursday:
+        Return_value="Czwartek ";
+        break;
+    case FIT::Friday:
+        Return_value="Piątek ";
+        break;
+    case FIT::Saturday:
+        Return_value="Sobota ";
+        break;
+    case FIT::Sundday:
+        Return_value="Niedziela ";
+        break;
+    }
+
+    Return_value+=QString::number(event.hour);
+    Return_value+=":";
+    Return_value+=QString::number(event.minutes);
+    return Return_value;
+}
+
+QString Signup_for_event_Dialog::parse_place(FIT::Event event){
+    switch (event.event_place) {
+    case FIT::Warsaw_centre:
+        return "Warszawa Centrum";
+    case FIT::Warsaw_Suburbs:
+        return "Warszawa Przedmieścia";
+    case FIT::Cracov:
+        return "Kraków";
+    }
 }
