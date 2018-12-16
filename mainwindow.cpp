@@ -67,13 +67,14 @@ void MainWindow::on_Log_out_PB_clicked()
 
 void MainWindow::on_Apply_for_Event_PB_clicked()
 {
-    //TODO evaluate applying for events
+    Signup_for_event_Dialog *SiFNEV_D = new Signup_for_event_Dialog;
+    if(SiFNEV_D->exec() == QDialog::Accepted)
+        return;
 }
 
 
 void MainWindow::on_Add_new_Events_PB_clicked()
 {
-    //TODO evaluate Adding new events
     Add_Event_Dialog *AdEV_D = new Add_Event_Dialog;
     if(AdEV_D->exec()==QDialog::Accepted)
         return;

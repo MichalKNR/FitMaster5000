@@ -19,6 +19,18 @@ Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
     QStringList days;
     days<<"Poniedziałek"<<"Wtorek"<<"Środa"<<"Czwartek"<<"Piątek"<<"Sobota"<<"Niedziela";
     ui->Day_CB->addItems(days);
+
+    //Initializing Table
+
+    ui->EventsTable->setColumnCount(4);
+    QStringList ColumnsNames;
+    ColumnsNames<<"Nazwa"<<"Trener"<<"Miejsce"<<"Czas";
+    ui->EventsTable->setHorizontalHeaderLabels(ColumnsNames);
+    ui->EventsTable->setColumnWidth(Tytul,80);
+    ui->EventsTable->setColumnWidth(Trener,125);
+    ui->EventsTable->setColumnWidth(Miejsce,150);
+    ui->EventsTable->setColumnWidth(Czas,150);
+
 }
 
 Signup_for_event_Dialog::~Signup_for_event_Dialog()

@@ -29,6 +29,13 @@ private:
     Ui::Signup_for_event_Dialog *ui;
 
     std::vector<FIT::Event> Events;
+
+    enum Columns{
+        Tytul,
+        Trener,
+        Miejsce,
+        Czas
+    };
 };
 
 #endif // SIGNUP_FOR_EVENT_DIALOG_H

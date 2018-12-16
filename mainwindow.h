@@ -5,6 +5,7 @@
 #include"login_dialog.h"
 #include"show_events_dialog.h"
 #include "add_event_dialog.h"
+#include "signup_for_event_dialog.h"
 
 namespace Ui {
 class MainWindow;
