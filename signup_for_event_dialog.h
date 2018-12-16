@@ -6,6 +6,7 @@
 #include <QDialog>
 #include <typedefs.h>
 #include <QString>
+#include <QTableWidgetItem>
 
 namespace Ui {
 class Signup_for_event_Dialog;
@@ -22,9 +23,11 @@ public:
 private slots:
     void on_End_PB_clicked();
 
-    void on_pushButton_clicked();
-
     void on_Search_PB_clicked();
+
+    void on_EventsTable_itemClicked(QTableWidgetItem *item);
+
+    void on_Signup_PB_clicked();
 
 private:
     Ui::Signup_for_event_Dialog *ui;
@@ -43,6 +46,8 @@ private:
         Czas,
         Ilosc_Miejsc
     };
+        bool is_selected_event;
+        int selected_item_row;
 };
 
 #endif // SIGNUP_FOR_EVENT_DIALOG_H

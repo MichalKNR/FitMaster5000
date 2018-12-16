@@ -1,5 +1,6 @@
 #include "signup_for_event_dialog.h"
 #include "ui_signup_for_event_dialog.h"
+#include "QMessageBox"
 
 Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
     QDialog(parent),
@@ -8,6 +9,7 @@ Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle("Dodawanie nowego zajęcia");
 
+    is_selected_event = false;
     //Initializing combolist
 
     QStringList coaches;
@@ -32,7 +34,7 @@ Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
     ui->EventsTable->setColumnWidth(Czas,150);
     ui->EventsTable->setColumnWidth(Ilosc_Miejsc,60);
 
-
+    ui->EventsTable->setEditTriggers(QAbstractItemView::NoEditTriggers); // set readonly
 }
 
 Signup_for_event_Dialog::~Signup_for_event_Dialog()
@@ -42,13 +44,9 @@ Signup_for_event_Dialog::~Signup_for_event_Dialog()
 
 void Signup_for_event_Dialog::on_End_PB_clicked()
 {
-
+    this->accept();
 }
 
-void Signup_for_event_Dialog::on_pushButton_clicked()
-{
-
-}
 
 void Signup_for_event_Dialog::on_Search_PB_clicked()
 {
@@ -141,5 +139,35 @@ QString Signup_for_event_Dialog::parse_place(FIT::Event event){
         return "Warszawa Przedmieścia";
     case FIT::Cracov:
         return "Kraków";
+    }
+}
+
+void Signup_for_event_Dialog::on_EventsTable_itemClicked(QTableWidgetItem *item)
+{
+    ui->EventsTable->selectRow(item->row());
+
+    is_selected_event = true;
+
+    selected_item_row = item->row();
+}
+
+void Signup_for_event_Dialog::on_Signup_PB_clicked()
+{
+    if(is_selected_event){
+        bool is_signup_good = true; //DEBUG fill
+        //TODO: Do SQL magic
+        if(is_signup_good){
+            QMessageBox *msg = new QMessageBox(QMessageBox::NoIcon,
+                                              "Powodzenie zapisywanie",
+                                              "Zapisywanie na zajęcia powiodło się!");
+            msg->exec();
+        }else
+        {
+            QMessageBox *msg = new QMessageBox(QMessageBox::NoIcon,
+                                              "Niepowodzenie zapisywanie",
+                                              "Zapisywanie na zajęcia nie powiodło się! \r\nSpróbuj ponownie za jakiś czas");
+            msg->exec();
+        }
+
     }
 }
