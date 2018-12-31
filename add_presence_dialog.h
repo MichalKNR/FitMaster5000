@@ -15,8 +15,15 @@ public:
     explicit Add_presence_dialog(QWidget *parent = nullptr);
     ~Add_presence_dialog();
 
+private slots:
+    void on_Automatic_RB_clicked();
+
+    void on_Manual_RB_clicked();
+
 private:
     Ui::Add_presence_dialog *ui;
+
+    bool isAutomatic_Participant_adding_on;
 };
 
 #endif // ADD_PRESENCE_DIALOG_H

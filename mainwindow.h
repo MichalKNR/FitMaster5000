@@ -6,6 +6,7 @@
 #include"show_events_dialog.h"
 #include "add_event_dialog.h"
 #include "signup_for_event_dialog.h"
+#include "add_presence_dialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -27,6 +28,8 @@ private slots:
     void on_Add_new_Events_PB_clicked();
 
     void on_ShowEvents_PB_clicked();
+
+    void on_Add_presence_PB_clicked();
 
 private:
     Ui::MainWindow *ui;

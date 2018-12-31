@@ -96,3 +96,10 @@ void MainWindow::on_ShowEvents_PB_clicked()
     if(ShEv_D->exec()==QDialog::Accepted)
         delete ShEv_D;
 }
+
+void MainWindow::on_Add_presence_PB_clicked()
+{
+    Add_presence_dialog *AdPr_D = new Add_presence_dialog;
+    if(AdPr_D->exec()==QDialog::Accepted)
+        delete AdPr_D;
+}

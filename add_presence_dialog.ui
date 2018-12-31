@@ -39,16 +39,6 @@
     <string>Ręczne</string>
    </property>
   </widget>
-  <widget class="QTableView" name="Participants_TV">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>261</width>
-     <height>201</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="Name_LE">
    <property name="geometry">
     <rect>
@@ -132,6 +122,16 @@
    </property>
    <property name="text">
     <string>Anuluj</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="Participants_TV">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
    </property>
   </widget>
  </widget>
