@@ -30,7 +30,8 @@ SOURCES += \
     login_dialog.cpp \
     show_events_dialog.cpp \
     add_event_dialog.cpp \
-    signup_for_event_dialog.cpp
+    signup_for_event_dialog.cpp \
+    add_presence_dialog.cpp
 
 
 HEADERS += \
@@ -39,7 +40,8 @@ HEADERS += \
     show_events_dialog.h \
     typedefs.h \
     add_event_dialog.h \
-    signup_for_event_dialog.h
+    signup_for_event_dialog.h \
+    add_presence_dialog.h
 
 
 FORMS += \
@@ -47,7 +49,8 @@ FORMS += \
     login_dialog.ui \
     show_events_dialog.ui \
     add_event_dialog.ui \
-    signup_for_event_dialog.ui
+    signup_for_event_dialog.ui \
+    add_presence_dialog.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
