@@ -7,7 +7,7 @@ Signup_for_event_Dialog::Signup_for_event_Dialog(QWidget *parent) :
     ui(new Ui::Signup_for_event_Dialog)
 {
     ui->setupUi(this);
-    setWindowTitle("Dodawanie nowego zajęcia");
+    setWindowTitle("Zapisywanie się na zajęcia");
 
     is_selected_event = false;
     //Initializing combolist
