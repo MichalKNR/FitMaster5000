@@ -1,5 +1,6 @@
 #include "add_presence_dialog.h"
 #include "ui_add_presence_dialog.h"
+#include "QMessageBox"
 
 Add_presence_dialog::Add_presence_dialog(QWidget *parent) :
     QDialog(parent),
@@ -26,9 +27,16 @@ Add_presence_dialog::Add_presence_dialog(QWidget *parent) :
         ui->Participants_TV->setColumnWidth(1,125);
 
         ui->Participants_TV->setEditTriggers(QAbstractItemView::NoEditTriggers); // set readonly
+
     }
 
-    //TODO:: do SQL magic to fill the Participants list
+    //TODO: do SQL magic to fill the Participants list
+    //TODO: do SQL magic to fill the events list
+    //DEBUG filing with random data
+
+    QStringList events_names;
+    events_names<<"Aerobik"<<"Zumba";
+    ui->Events_Selection_CB->addItems(events_names);
 }
 
 Add_presence_dialog::~Add_presence_dialog()
@@ -64,5 +72,20 @@ void Add_presence_dialog::on_End_PB_clicked()
 
 void Add_presence_dialog::on_Add_Presence_PB_clicked()
 {
+
+    //TODO: SQL magic to evaluate validation of participant and eventually adding presence
+    //DEBUG: These messages will always occur until magic is done
+
+    bool is_payment_done = false ; //debug to show message
+    bool are_free_places = false ; //debug to show message//make true if client is already signed up
+
+    QString title= "Błąd w dodawaniu obecności";
+    QString text;
+    if(is_payment_done&&!are_free_places) text = "Brak wolnych miejsc";
+    if(!is_payment_done&&are_free_places) text = "Płatność nie została uregulowana";
+    if(!is_payment_done&&!are_free_places) text = "Brak wolnych miejsc oraz nie została uregulowana płątność";
+    QMessageBox *msg = new QMessageBox(QMessageBox::NoIcon,title,text);
+    msg->exec();
+
 
 }

@@ -20,6 +20,10 @@ private slots:
 
     void on_Manual_RB_clicked();
 
+    void on_End_PB_clicked();
+
+    void on_Add_Presence_PB_clicked();
+
 private:
     Ui::Add_presence_dialog *ui;
 

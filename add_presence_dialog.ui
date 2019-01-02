@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>283</width>
-    <height>395</height>
+    <height>423</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,7 +43,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>280</y>
+     <y>310</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -53,7 +53,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>320</y>
+     <y>350</y>
      <width>113</width>
      <height>20</height>
     </rect>
@@ -63,7 +63,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>360</y>
+     <y>380</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -76,7 +76,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>260</y>
+     <y>290</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -89,7 +89,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>300</y>
+     <y>330</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -102,7 +102,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>360</y>
+     <y>380</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -111,26 +111,23 @@
     <string>Zakończ</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="Cancel_PB">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>360</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Anuluj</string>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="Participants_TV">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>50</y>
+     <y>90</y>
      <width>256</width>
      <height>192</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="Events_Selection_CB">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>251</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
