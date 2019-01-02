@@ -23,6 +23,7 @@ void MainWindow::login_customer(){
     if(is_new_customer) break; //Nowy użytkownik nie musi mieć spradzanego hasła
 
     valid_password=check_password_validity(login,password);
+
     if(valid_password==false){
         QMessageBox *error_message = new QMessageBox("Błąd logowania","Użyto złego hasła! \n\rSpróbuj ponownie",QMessageBox::NoIcon,0,0,0);
         error_message->exec();
@@ -34,16 +35,23 @@ if(is_admin(login,password)) {
     ui->isAdmin_Laber->setVisible(true);
     ui->Add_new_Events_PB->setVisible(true);
     ui->ShowEvents_PB->setVisible(false);
+    ui->Add_presence_PB->setVisible(false);
+    ui->Apply_for_Event_PB->setVisible(true);
+}
+
+if(is_coach(login,password)){
+    ui->isAdmin_Laber->setVisible(false);
+    ui->Add_new_Events_PB->setVisible(false);
+    ui->ShowEvents_PB->setVisible(false);
+    ui->Add_presence_PB->setVisible(true);
+    ui->Apply_for_Event_PB->setVisible(false);
 }
 else {
     ui->isAdmin_Laber->setVisible(false);
     ui->Add_new_Events_PB->setVisible(false);
     ui->ShowEvents_PB->setVisible(true);
-}
-if(is_coach(login,password)){
-    ui->isAdmin_Laber->setVisible(false);
-    ui->Add_new_Events_PB->setVisible(false);
-    ui->ShowEvents_PB->setVisible(false);
+    ui->Add_presence_PB->setVisible(false);
+    ui->Apply_for_Event_PB->setVisible(true);
 }
 }
 
