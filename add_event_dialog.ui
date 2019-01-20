@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>264</width>
-    <height>317</height>
+    <height>353</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -67,19 +67,19 @@
     <rect>
      <x>10</x>
      <y>220</y>
-     <width>81</width>
+     <width>111</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Godzina</string>
+    <string>Godzina Rozpoczęcia</string>
    </property>
   </widget>
   <widget class="QPushButton" name="End_PB">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>280</y>
+     <x>160</x>
+     <y>310</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -92,7 +92,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>280</y>
+     <y>310</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -155,6 +155,29 @@
      <width>221</width>
      <height>22</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="timeEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>118</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Godzina Zakończenia</string>
    </property>
   </widget>
  </widget>
