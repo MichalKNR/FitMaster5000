@@ -15,45 +15,52 @@ void MainWindow::login_customer(){
     login_window = new Login_Dialog();
     bool valid_password=false;
     do{
-    if(login_window->exec()==QDialog::Accepted){
-        this->login=login_window->login;
-        this->password=login_window->password;
-        this->is_new_customer=login_window->is_new_customer;
+        if(login_window->exec()==QDialog::Accepted){
+            this->login=login_window->login;
+            this->password=login_window->password;
+            this->is_new_customer=login_window->is_new_customer;
+        }
+        if(is_new_customer) break; //Nowy użytkownik nie musi mieć spradzanego hasła
+
+        valid_password=check_password_validity(login,password);
+
+        if(valid_password==false){
+            QMessageBox *error_message = new QMessageBox("Błąd logowania","Użyto złego hasła! \n\rSpróbuj ponownie",QMessageBox::NoIcon,0,0,0);
+            error_message->exec();
+        }
+    }while(valid_password==false);
+    ui->Login_Label->setText(QString::fromStdString(this->login));
+
+    if(is_admin(login,password)) {
+        ui->isAdmin_Laber->setVisible(true);
+        ui->Add_new_Events_PB->setVisible(true);
+        ui->ShowEvents_PB->setVisible(true);
+        ui->Add_presence_PB->setVisible(true);
+        ui->Apply_for_Event_PB->setVisible(true);
+
+        ui->RAP_events_PB->setVisible(true);
+        ui->RAP_coaches_PB->setVisible(true);
+        ui->RAP_FITMASTER_PB->setVisible(true);
     }
-    if(is_new_customer) break; //Nowy użytkownik nie musi mieć spradzanego hasła
-
-    valid_password=check_password_validity(login,password);
-
-    if(valid_password==false){
-        QMessageBox *error_message = new QMessageBox("Błąd logowania","Użyto złego hasła! \n\rSpróbuj ponownie",QMessageBox::NoIcon,0,0,0);
-        error_message->exec();
+    else{
+        ui->RAP_events_PB->setVisible(false);
+        ui->RAP_coaches_PB->setVisible(false);
+        ui->RAP_FITMASTER_PB->setVisible(false);
+        if(!is_coach(login,password)){
+            ui->isAdmin_Laber->setVisible(false);
+            ui->Add_new_Events_PB->setVisible(false);
+            ui->ShowEvents_PB->setVisible(false);
+            ui->Add_presence_PB->setVisible(true);
+            ui->Apply_for_Event_PB->setVisible(false);
+        }
+        else {
+            ui->isAdmin_Laber->setVisible(false);
+            ui->Add_new_Events_PB->setVisible(false);
+            ui->ShowEvents_PB->setVisible(true);
+            ui->Add_presence_PB->setVisible(false);
+            ui->Apply_for_Event_PB->setVisible(true);
+        }
     }
-}while(valid_password==false);
-ui->Login_Label->setText(QString::fromStdString(this->login));
-/*
-if(is_admin(login,password)) {
-    ui->isAdmin_Laber->setVisible(true);
-    ui->Add_new_Events_PB->setVisible(true);
-    ui->ShowEvents_PB->setVisible(true);
-    ui->Add_presence_PB->setVisible(true);
-    ui->Apply_for_Event_PB->setVisible(true);
-}
-*/
-if(!is_coach(login,password)){
-    ui->isAdmin_Laber->setVisible(false);
-    ui->Add_new_Events_PB->setVisible(false);
-    ui->ShowEvents_PB->setVisible(false);
-    ui->Add_presence_PB->setVisible(true);
-    ui->Apply_for_Event_PB->setVisible(false);
-}
-else {
-    ui->isAdmin_Laber->setVisible(false);
-    ui->Add_new_Events_PB->setVisible(false);
-    ui->ShowEvents_PB->setVisible(true);
-    ui->Add_presence_PB->setVisible(false);
-    ui->Apply_for_Event_PB->setVisible(true);
-}
-
 }
 
 
@@ -111,4 +118,25 @@ void MainWindow::on_Add_presence_PB_clicked()
     Add_presence_dialog *AdPr_D = new Add_presence_dialog;
     if(AdPr_D->exec()==QDialog::Accepted)
         delete AdPr_D;
+}
+
+void MainWindow::on_RAP_events_PB_clicked()
+{
+    STATS_Events_dialog *SEV_D = new STATS_Events_dialog;
+    if(SEV_D->exec()==QDialog::Accepted)
+        delete  SEV_D;
+}
+
+void MainWindow::on_RAP_coaches_PB_clicked()
+{
+    STATS_Coach *SCH = new STATS_Coach;
+    if(SCH->exec()==QDialog::Accepted)
+        delete SCH;
+}
+
+void MainWindow::on_RAP_FITMASTER_PB_clicked()
+{
+    STATS_FitMaster_dialog *SFM = new STATS_FitMaster_dialog;
+    if(SFM->exec()==QDialog::Accepted)
+        delete SFM;
 }

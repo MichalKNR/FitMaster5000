@@ -34,7 +34,7 @@ SOURCES += \
     add_presence_dialog.cpp \
     stats_events_dialog.cpp \
     stats_coach.cpp \
-    stats_fitmaster.cpp
+    stats_fitmaster_dialog.cpp
 
 
 HEADERS += \
@@ -47,7 +47,7 @@ HEADERS += \
     add_presence_dialog.h \
     stats_events_dialog.h \
     stats_coach.h \
-    stats_fitmaster.h
+    stats_fitmaster_dialog.h
 
 
 FORMS += \
@@ -58,7 +58,8 @@ FORMS += \
     signup_for_event_dialog.ui \
     add_presence_dialog.ui \
     stats_events_dialog.ui \
-    stats_coach.ui
+    stats_coach.ui \
+    stats_fitmaster_dialog.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
