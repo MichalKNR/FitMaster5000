@@ -38,8 +38,13 @@ void Login_Dialog::on_OK_PB_clicked()
 
 void Login_Dialog::on_New_customer_CB_stateChanged(int arg1)
 {
-    if(ui->New_customer_CB->checkState()==Qt::Checked)// Jeżeli został zaznaczony nowy uzytkownik
+    if(ui->New_customer_CB->checkState()==Qt::Checked){// Jeżeli został zaznaczony nowy uzytkownik
         ui->Password_secondary_LE->setEnabled(true);
-    else
+        ui->Login_LE->setEnabled(false);
+        ui->Login_LE->setText("Magiczny_Krzysztof05");
+        }
+    else{
         ui->Password_secondary_LE->setEnabled(false);
+        ui->Login_LE->setEnabled(true);
+        }
 }

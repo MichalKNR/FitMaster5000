@@ -30,7 +30,7 @@ void MainWindow::login_customer(){
     }
 }while(valid_password==false);
 ui->Login_Label->setText(QString::fromStdString(this->login));
-
+/*
 if(is_admin(login,password)) {
     ui->isAdmin_Laber->setVisible(true);
     ui->Add_new_Events_PB->setVisible(true);
@@ -38,8 +38,8 @@ if(is_admin(login,password)) {
     ui->Add_presence_PB->setVisible(true);
     ui->Apply_for_Event_PB->setVisible(true);
 }
-/*
-if(is_coach(login,password)){
+*/
+if(!is_coach(login,password)){
     ui->isAdmin_Laber->setVisible(false);
     ui->Add_new_Events_PB->setVisible(false);
     ui->ShowEvents_PB->setVisible(false);
@@ -53,7 +53,7 @@ else {
     ui->Add_presence_PB->setVisible(false);
     ui->Apply_for_Event_PB->setVisible(true);
 }
-*/
+
 }
 
 
