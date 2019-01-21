@@ -31,7 +31,10 @@ SOURCES += \
     show_events_dialog.cpp \
     add_event_dialog.cpp \
     signup_for_event_dialog.cpp \
-    add_presence_dialog.cpp
+    add_presence_dialog.cpp \
+    stats_events_dialog.cpp \
+    stats_coach.cpp \
+    stats_fitmaster.cpp
 
 
 HEADERS += \
@@ -41,7 +44,10 @@ HEADERS += \
     typedefs.h \
     add_event_dialog.h \
     signup_for_event_dialog.h \
-    add_presence_dialog.h
+    add_presence_dialog.h \
+    stats_events_dialog.h \
+    stats_coach.h \
+    stats_fitmaster.h
 
 
 FORMS += \
@@ -50,7 +56,9 @@ FORMS += \
     show_events_dialog.ui \
     add_event_dialog.ui \
     signup_for_event_dialog.ui \
-    add_presence_dialog.ui
+    add_presence_dialog.ui \
+    stats_events_dialog.ui \
+    stats_coach.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
