@@ -16,7 +16,7 @@
   <widget class="QPushButton" name="End_Dialog_PB">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>430</x>
      <y>290</y>
      <width>75</width>
      <height>23</height>
@@ -82,6 +82,26 @@
     <string>Filtruj Do</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="exit_event_PB">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Wypisz się</string>
+   </property>
+  </widget>
+  <zorder>exit_event_PB</zorder>
+  <zorder>End_Dialog_PB</zorder>
+  <zorder>EventsTable</zorder>
+  <zorder>dateTimeEdit</zorder>
+  <zorder>dateTimeEdit_2</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
  </widget>
  <resources/>
  <connections/>

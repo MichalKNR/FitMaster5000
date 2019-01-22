@@ -18,6 +18,7 @@ Show_Events_Dialog::Show_Events_Dialog(QWidget *parent) :
     ui->EventsTable->setColumnWidth(Miejsce,150);
     ui->EventsTable->setColumnWidth(Czas,150);
 
+    is_selected_event = false;
     //TODO evaluate SQL querry
 
 
@@ -123,4 +124,33 @@ void Show_Events_Dialog::fill_Events_Table(){
                                  new QTableWidgetItem(QString::fromStdString(parse_time(event).toStdString())));
 
     }
+}
+
+void Show_Events_Dialog::on_exit_event_PB_clicked()
+{
+    if(is_selected_event){
+        bool is_exit_good = true; //DEBUG fill
+        //TODO: Do SQL magic
+        if(is_exit_good){
+            QMessageBox *msg = new QMessageBox(QMessageBox::NoIcon,
+                                               "Powodzenie wypisywanie",
+                                               "Wypisywanie na zajęcia powiodło się!");
+            msg->exec();
+        }else
+        {
+            QMessageBox *msg = new QMessageBox(QMessageBox::NoIcon,
+                                               "Niepowodzenie wypisywanie",
+                                               "Wypisywanie na zajęcia nie powiodło się! \r\nSpróbuj ponownie za jakiś czas");
+            msg->exec();
+        }
+    }
+}
+
+void Show_Events_Dialog::on_EventsTable_itemClicked(QTableWidgetItem *item)
+{
+    ui->EventsTable->selectRow(item->row());
+
+    is_selected_event = true;
+
+    selected_item_row = item->row();
 }
