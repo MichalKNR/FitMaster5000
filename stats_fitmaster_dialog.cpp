@@ -11,8 +11,8 @@ STATS_FitMaster_dialog::STATS_FitMaster_dialog(QWidget *parent) :
     QStringList ColumnsNames;
     ColumnsNames<<"miesiac"<<"rok"<<"suma_wplywow"<<"suma_wydatkow"<<"liczba_zajec";
     ui->tableWidget->setHorizontalHeaderLabels(ColumnsNames);
-    ui->tableWidget->setColumnWidth(0,80);
-    ui->tableWidget->setColumnWidth(1,125);
+    ui->tableWidget->setColumnWidth(0,70);
+    ui->tableWidget->setColumnWidth(1,50);
     ui->tableWidget->setColumnWidth(2,150);
     ui->tableWidget->setColumnWidth(3,150);
     ui->tableWidget->setColumnWidth(4,150);
