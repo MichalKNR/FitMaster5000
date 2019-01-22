@@ -3,7 +3,13 @@
 
 #include <QDialog>
 #include "typedefs.h"
-
+#include <QString>
+#include <QtSql>
+#include <QTableWidgetItem>
+#include "typedefs.h"
+#include <string>
+#include <sstream>
+#include "QMessageBox"
 namespace Ui {
 class Add_Event_Dialog;
 }
@@ -28,8 +34,8 @@ private:
     Ui::Add_Event_Dialog *ui;
 
     void parse_time(int *p_time);
-    FIT::Place parse_place(QString place);
-    FIT::Day parse_day(QString day);
+//    FIT::Place parse_place(QString place);
+//    FIT::Day parse_day(QString day);
 
 
 };

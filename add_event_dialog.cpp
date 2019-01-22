@@ -28,8 +28,11 @@ void Add_Event_Dialog::on_Add_event_PB_clicked()
 {
     event_new.Title=ui->Title_LE->text().toStdString();
     event_new.coach=ui->Coach_CB->currentText().toStdString();
-    event_new.day=parse_day(ui->Day_CB->currentText());
-    event_new.event_place=parse_place(ui->Day_CB->currentText());
+//    event_new.day=parse_day(ui->Day_CB->currentText());
+//    event_new.event_place=parse_place(ui->Day_CB->currentText());
+    event_new.day=ui->Day_CB->currentText().toStdString();
+    event_new.event_place=ui->Day_CB->currentText().toStdString();
+
     int parsed_time[2];
     parse_time(parsed_time);
     event_new.hour = parsed_time[0];
@@ -84,20 +87,20 @@ void Add_Event_Dialog::parse_time(int* p_time){
     p_time = return_time;
 }
 
-FIT::Place Add_Event_Dialog::parse_place(QString place){
-    if(place=="Warszawa Centrum") return FIT::Warsaw_centre;
-    if(place=="Warszawa Przedmieścia") return FIT::Warsaw_Suburbs;
-    if(place=="Kraków") return FIT::Cracov;
-    return FIT::Warsaw_centre; //domyślnie
-}
+//FIT::Place Add_Event_Dialog::parse_place(QString place){
+//    if(place=="Warszawa Centrum") return FIT::Warsaw_centre;
+//    if(place=="Warszawa Przedmieścia") return FIT::Warsaw_Suburbs;
+//    if(place=="Kraków") return FIT::Cracov;
+//    return FIT::Warsaw_centre; //domyślnie
+//}
 
-FIT::Day Add_Event_Dialog::parse_day(QString day){
-    if(day=="Poniedziałek") return FIT::Monday;
-    if(day=="Wtorek") return FIT::Tuesday;
-    if(day=="Środa") return FIT::Wednesday;
-    if(day=="Czwartek") return FIT::Thursday;
-    if(day=="Piatek") return FIT::Friday;
-    if(day=="Sobota") return FIT::Saturday;
-    if(day=="Niedziela") return FIT::Sundday;
-    return FIT::Monday; //domyślnie
-}
+//FIT::Day Add_Event_Dialog::parse_day(QString day){
+//    if(day=="Poniedziałek") return FIT::Monday;
+//    if(day=="Wtorek") return FIT::Tuesday;
+//    if(day=="Środa") return FIT::Wednesday;
+//    if(day=="Czwartek") return FIT::Thursday;
+//    if(day=="Piatek") return FIT::Friday;
+//    if(day=="Sobota") return FIT::Saturday;
+//    if(day=="Niedziela") return FIT::Sundday;
+//    return FIT::Monday; //domyślnie
+//}

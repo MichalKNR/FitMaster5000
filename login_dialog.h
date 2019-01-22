@@ -2,6 +2,13 @@
 #define LOGIN_DIALOG_H
 
 #include <QDialog>
+#include <QString>
+#include <QtSql>
+#include <QTableWidgetItem>
+#include "typedefs.h"
+#include <string>
+#include <sstream>
+#include "QMessageBox"
 
 namespace Ui {
 class Login_Dialog;
@@ -14,6 +21,8 @@ class Login_Dialog : public QDialog
 public:
     explicit Login_Dialog(QWidget *parent = nullptr);
     ~Login_Dialog();
+    int string_to_int(std::string s);
+
     std::string login;
     std::string password;
     bool is_new_customer;

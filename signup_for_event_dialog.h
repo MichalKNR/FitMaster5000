@@ -6,6 +6,10 @@
 #include <QDialog>
 #include <typedefs.h>
 #include <QString>
+#include <QtSql>
+#include <QTableWidgetItem>
+#include <string>
+#include <sstream>
 #include <QTableWidgetItem>
 
 namespace Ui {
@@ -17,9 +21,9 @@ class Signup_for_event_Dialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit Signup_for_event_Dialog(QWidget *parent = nullptr);
+    explicit Signup_for_event_Dialog(QWidget *parent = nullptr, QString s="");
     ~Signup_for_event_Dialog();
-
+QString nr_karty;
 private slots:
     void on_End_PB_clicked();
 
@@ -38,6 +42,7 @@ private:
     QString parse_place(FIT::Event event);
 
     void fill_Events_Table();
+    int string_to_int(std::string s);
 
     enum Columns{
         Tytul,

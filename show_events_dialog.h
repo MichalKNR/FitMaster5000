@@ -2,6 +2,7 @@
 #define SHOW_EVENTS_DIALOG_H
 
 #include <QDialog>
+#include <QtSql>
 #include "typedefs.h"
 #include <QTableWidgetItem>
 
@@ -14,9 +15,9 @@ class Show_Events_Dialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit Show_Events_Dialog(QWidget *parent = nullptr);
+    explicit Show_Events_Dialog(QWidget *parent = nullptr, QString s="");
     ~Show_Events_Dialog();
-
+    QString nr_karty;
 private slots:
     void on_End_Dialog_PB_clicked();
 

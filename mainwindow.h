@@ -2,6 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include <QtSql/QtSql>
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
+#include <string>
+#include <sstream>
+#include <iostream>
 #include"login_dialog.h"
 #include"show_events_dialog.h"
 #include "add_event_dialog.h"
@@ -22,6 +29,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
 
 private slots:
     void on_Log_out_PB_clicked();
@@ -45,6 +53,10 @@ private:
 
     Login_Dialog *login_window;
 
+    QSqlDatabase database;
+    std::string user;
+    QString nr_k;
+
     std::string login;
     std::string password;
     bool is_new_customer;
@@ -52,6 +64,9 @@ private:
 
     void login_customer();
 
+    void connect_database();
+
+    void add_new_customer();
 
     bool check_password_validity(std::string login, std::string password);
 
