@@ -95,6 +95,19 @@
     <string>Wypisz się</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>290</y>
+     <width>141</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Wypisz się ze wszystkiego</string>
+   </property>
+  </widget>
   <zorder>exit_event_PB</zorder>
   <zorder>End_Dialog_PB</zorder>
   <zorder>EventsTable</zorder>
@@ -102,6 +115,7 @@
   <zorder>dateTimeEdit_2</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>
